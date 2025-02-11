@@ -19,3 +19,12 @@ class CourseModel(models.Model):
 
     def __str__(self):
         return f'Course created by {self.course_created_by.first_name} {self.course_created_by.last_name}'
+
+
+class BlockModel(models.Model):
+    is_blocked = models.BooleanField(default=False)
+    block_student = models.ForeignKey(User,on_delete=models.CASCADE,related_name="block_student")
+    block_by = models.ForeignKey(User,on_delete=models.CASCADE,related_name="block_by")
+
+    def __str__(self):
+        return f'{self.block_student.first_name} {self.block_student.last_name} block by {self.block_by.first_name} {self.block_by.last_name}'

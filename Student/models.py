@@ -29,3 +29,11 @@ class FeedBackModel(models.Model):
     def __str__(self):
         return f'Feedback By {self.feedback_by.first_name} {self.feedback_by.last_name}'
 
+
+class CourseEnrollModel(models.Model):
+    course = models.ForeignKey(CourseModel,on_delete=models.CASCADE)
+    enroll_by = models.ForeignKey(User,on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.course.course_title} enrolled by {self.enroll_by.first_name} {self.enroll_by.last_name}'
+
