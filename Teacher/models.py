@@ -11,6 +11,7 @@ class CourseMaterialsModel(models.Model):
 
 class CourseModel(models.Model):
     course_title = models.CharField(max_length=200,default="")
+    course_thumbnail = models.ImageField(upload_to="Media/Thumbnail",null=True,blank=True)
     materials = models.ManyToManyField(CourseMaterialsModel)
     description = models.TextField()
     course_credit = models.IntegerField(default=0)
