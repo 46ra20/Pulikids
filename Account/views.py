@@ -15,8 +15,8 @@ class StudentRegistrationView(APIView):
         if serializer.is_valid():
             user = serializer.save()
             
-            return Response('Registration complete successfully.')
-        return Response('Sorry, Enter validate data to complete your registration')
+            return Response({'status':'success','message':'Registration complete successfully.'})
+        return Response({'status':'failed','message':'Sorry, Enter validate data to complete your registration'})
 
 class TeacherRegistrationView(APIView):
     serializer_class = TeacherRegistrationSerializers
@@ -27,8 +27,8 @@ class TeacherRegistrationView(APIView):
         if serializer.is_valid():
             user = serializer.save()
             
-            return Response('Registration complete successfully.')
-        return Response('Sorry, Enter validate data to complete your registration')
+            return Response({'status':'success','message':'Registration complete successfully.'})
+        return Response({'status':'failed','message':'Sorry, Enter validate data to complete your registration'})
     
 
 class LoginView(APIView):
